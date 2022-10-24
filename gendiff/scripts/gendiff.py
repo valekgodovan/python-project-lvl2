@@ -3,18 +3,31 @@
 import argparse
 import json
 
+
 def get_file(name_file):
     file = json.load(open(name_file))
     return file
+
 
 def get_diff(file1, file2) -> str:
     file1_dict = get_file(file1)
     file2_dict = get_file(file2)
     keys = file1_dict.keys() | file2_dict.keys()
     merge_dict = {}
+    result = ''
     for v in keys:
         merge_dict[v] = [file1_dict.get(v, []), file2_dict.get(v, [])]
-    return merge_dict
+    for i in sorted(merge_dict.keys()):
+        if i not in file1_dict:
+            result += f'+ {i}: {file2_dict[i]}\n'
+        elif i not in file2_dict:
+            result += f'- {i}: {file1_dict[i]}\n'
+        elif file1_dict[i] == file2_dict[i]:
+            result += f'  {i}: {file1_dict[i]}\n'
+        else:
+            result += f'- {i}: {file1_dict[i]}\n'
+            result += f'+ {i}: {file2_dict[i]}\n'
+    return result
 
 
 def main():
