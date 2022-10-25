@@ -28,7 +28,7 @@ def get_diff(file1, file2) -> str:
             result[f'- {i}']= file1_dict[i]
             result[f'+ {i}']= file2_dict[i]
     file_json = json.dumps(result, indent=2)
-    return file_json
+    return file_json.translate({ord('"'): None})
 
 
 def main():
