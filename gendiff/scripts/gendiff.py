@@ -25,14 +25,16 @@ def get_diff(file1, file2) -> str:
         elif file1_dict[i] == file2_dict[i]:
             result[f'  {i}'] = file1_dict[i]
         else:
-            result[f'- {i}']= file1_dict[i]
-            result[f'+ {i}']= file2_dict[i]
+            result[f'- {i}'] = file1_dict[i]
+            result[f'+ {i}'] = file2_dict[i]
     file_json = json.dumps(result, indent=2)
     return file_json.translate({ord('"'): None})
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Compares two configuration files and shows a difference.")
+    parser = argparse.ArgumentParser(
+        description="Compares two configuration files and shows a difference."
+    )
     parser.add_argument("first_file")
     parser.add_argument("second_file")
     parser.add_argument("-f", "--format", help="set format of output")
