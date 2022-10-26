@@ -1,14 +1,14 @@
 import json
 
 
-def get_file(name_file):
-    file = json.load(open(name_file))
+def get_file(path_to_file):
+    file = json.load(open(path_to_file))
     return file
 
 
-def gen_diff(file1, file2) -> str:
-    file1_dict = get_file(file1)
-    file2_dict = get_file(file2)
+def gen_diff(path_to_file1, path_to_file2) -> str:
+    file1_dict = get_file(path_to_file1)
+    file2_dict = get_file(path_to_file2)
     keys = file1_dict.keys() | file2_dict.keys()
     merge_dict = {}
     result = {}
@@ -25,4 +25,4 @@ def gen_diff(file1, file2) -> str:
             result[f'- {i}'] = file1_dict[i]
             result[f'+ {i}'] = file2_dict[i]
     file_json = json.dumps(result, indent=2)
-    return file_json.translate({ord('"'): None})
+    return file_json.translate({ord('"'): None, ord(','): None})
