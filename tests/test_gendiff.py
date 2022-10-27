@@ -6,5 +6,5 @@ def test_gen_diff():
         result = f.read()
         assert gen_diff(
             'tests/fixtures/file1.json',
-            'tests/fixtures/file2.json'
-            ) == result
+            'tests/fixtures/file2.json',
+        ) == result
