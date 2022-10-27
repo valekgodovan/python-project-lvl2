@@ -1,0 +1,25 @@
+#------------------------
+#GitHub Action First Try
+#Sosnin Valentin  2022.
+#------------------------
+name: My-First-Action
+
+on:
+  push:
+    branches: 
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  testing: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run test
+        run: make test
+  
+  linter: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linter check
+        run: make lint
