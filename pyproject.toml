@@ -10,6 +10,7 @@ authors = ["valek <valekgodovan@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pyyaml = "^6.0"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"

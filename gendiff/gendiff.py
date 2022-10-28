@@ -1,9 +1,13 @@
 import json
+import yaml
 
 
 def get_file(name_file):
     if name_file[-4:] == 'json':
         file = json.load(open(name_file))
+    if name_file[-4:] == 'yaml':
+        with open(name_file, 'r') as stream:
+            file = yaml.safe_load(stream)
     return file
 
 
