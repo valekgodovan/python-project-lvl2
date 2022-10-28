@@ -1,6 +1,6 @@
-from gendiff.gendiff import gen_diff, get_file
+from gendiff.gendiff import generate_diff, get_file
 
 __all__ = (
-    'gen_diff',
+    'generate_diff',
     'get_file',
 )
