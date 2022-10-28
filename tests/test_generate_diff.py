@@ -1,7 +1,7 @@
 from gendiff import generate_diff
 
 
-def test_generate_diff():
+def test_generate_diff_json():
     with open('tests/fixtures/res.txt') as f:
         result = f.read()
         assert generate_diff(

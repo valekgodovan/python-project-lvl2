@@ -1,8 +1,9 @@
 import json
 
 
-def get_file(path_to_file):
-    file = json.load(open(path_to_file))
+def get_file(name_file):
+    if name_file[-4:] == 'json':
+        file = json.load(open(name_file))
     return file
 
 
