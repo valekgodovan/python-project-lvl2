@@ -21,3 +21,7 @@ lint:
 
 test:
 	poetry run pytest
+run:
+	make build
+	make reinstall
+	make lint

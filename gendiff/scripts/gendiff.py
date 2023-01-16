@@ -4,7 +4,6 @@ from gendiff import generate_diff
 from gendiff import get_args
 
 
-
 def main():
     args = get_args()
     print(type(args))
