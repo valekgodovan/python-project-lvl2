@@ -2,16 +2,17 @@ import json
 import yaml
 
 
-def get_file(name_file):
-    if name_file[-4:] == 'json':
-        file = json.load(open(name_file))
-    if name_file[-4:] == 'yaml':
+def get_file(name_file: str) -> dict:
+    if name_file.endswith('json'):
+        with open(name_file, 'r') as stream:
+            file = json.load(stream)
+    elif name_file.endswith('yaml'):
         with open(name_file, 'r') as stream:
             file = yaml.safe_load(stream)
     return file
 
 
-def generate_diff(path_to_file1, path_to_file2) -> str:
+def generate_diff(path_to_file1: str, path_to_file2: str) -> str:
     file1_dict = get_file(path_to_file1)
     file2_dict = get_file(path_to_file2)
     keys = file1_dict.keys() | file2_dict.keys()
