@@ -55,4 +55,4 @@ def iter_(data, depth=0, replacer=' ', spaces_count=4):
 
 
 def format_stylish(diff_tree):
-    return iter_(diff_tree)
+    return iter_(diff_tree) + '\n'
