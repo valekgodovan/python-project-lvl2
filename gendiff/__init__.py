@@ -1,8 +1,10 @@
-from .gendiff import generate_diff, get_file
-from .gen_parse import get_args
+from gendiff.generate_diff import generate_diff
+from .internal_representation import build_diff
+from .cli import parse_args
+
 
 __all__ = (
     'generate_diff',
-    'get_file',
-    'get_args',
+    'build_diff',
+    'parse_args'
 )
